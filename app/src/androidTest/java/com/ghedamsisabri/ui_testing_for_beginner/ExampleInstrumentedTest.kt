@@ -1,27 +1,24 @@
 package com.ghedamsisabri.ui_testing_for_beginner
 
 import android.view.View
+import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import com.ghedamsisabri.ui_testing_for_beginner.Helper.getText
 import com.ghedamsisabri.ui_testing_for_beginner.Helper.isTextOnScreen
 import com.ghedamsisabri.ui_testing_for_beginner.Helper.isViewDisplayed
 import com.ghedamsisabri.ui_testing_for_beginner.Helper.tap
 import org.hamcrest.Matcher
+import org.junit.Assert
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
 import org.junit.Rule
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class ExampleInstrumentedTest {
@@ -29,18 +26,12 @@ class ExampleInstrumentedTest {
     @get:Rule var activityScenarioRule = activityScenarioRule<MainActivity>()
 
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.ghedamsisabri.ui_testing_for_beginner", appContext.packageName)
-    }
-
-    @Test
     fun checkSecondPage() {
         NextBtn.tap()
         secondPageActivity.isViewDisplayed()
 
         isTextOnScreen("SecondaryActivity")
+        Assert.assertEquals("SecondaryActivity", secondPageActivity.getText(5))
     }
 
     companion object{

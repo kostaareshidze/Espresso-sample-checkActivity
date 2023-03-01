@@ -1,7 +1,6 @@
 package com.ghedamsisabri.ui_testing_for_beginner
 
 import android.view.View
-import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
